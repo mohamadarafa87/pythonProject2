@@ -10,10 +10,10 @@ from flask import Flask,render_template, request,  redirect, url_for
 
 app = Flask(__name__)
 
-model = pickle.load(open('https://github.com/mohamadarafa87/pythonProject2/edit/master/scrip.pkl','rb'))
-modelLR = pickle.load(open('https://github.com/mohamadarafa87/pythonProject2/edit/master/scripL.pkl','rb'))
-modelTR = pickle.load(open('https://github.com/mohamadarafa87/pythonProject2/edit/master/tree.pkl','rb'))
-modelKN = pickle.load(open('https://github.com/mohamadarafa87/pythonProject2/edit/master/KNeighbor.pkl','rb'))
+model = pickle.load(open('/mohamadarafa87/pythonProject2/edit/master/scrip.pkl','rb'))
+modelLR = pickle.load(open('/mohamadarafa87/pythonProject2/edit/master/scripL.pkl','rb'))
+modelTR = pickle.load(open('/mohamadarafa87/pythonProject2/edit/master/tree.pkl','rb'))
+modelKN = pickle.load(open('/mohamadarafa87/pythonProject2/edit/master/KNeighbor.pkl','rb'))
 
 
 imgFolder = os.path.join('static','img')
