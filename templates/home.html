@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+
+
+
+
+
+<!--
+    <title>Prediction</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css"
+        />
+        -->
+
+
+
+     <title>Prediction</title>
+     <link rel="stylesheet" href="{{ url_for('static',filename='home.css') }}"/>
+
+	<!-- Latest compiled and minified CSS -->
+<!--
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+-->
+</head>
+<body>
+
+
+<div class="container">
+
+ <form method="POST", action="{{url_for('home')}}">
+
+             <h1>Prediction For Cardio DataSet</h1>
+    <div class="form-group">
+     <label for="age_year">Enter the Age </label>
+     <input type="number" class="u-full-width" name="a" id="10" required> <br>
+     <label for="height">Height </label>
+     <input type="number" name="b" id="20" required> <br>
+     <label for="weight">Weight </label>
+     <input type="number" name="c" id="30" required> <br>
+     <label for="ap_hi">Systolic Blood Pressure </label>
+     <input type="number" name="d" id="40" required> <br>
+     <label for="ap_lo">Distolic Blood Pressure </label>
+     <input type="number" name="e" id="50" required> <br>
+     <label for="cholesterol">Cholesterol </label>
+     <input type="number" name="f" id="60" required> <br>
+     <label for="gluc">Glucose </label>
+     <input type="number" name="g" id="70" required> <br>
+     <label for="smoke">Smoke </label>
+     <input type="number" name="h" id="80" required> <br>
+     <label for="alco">Alcohol </label>
+     <input type="number" name="i" id="90" required> <br>
+     <label for="active">Active </label>
+     <input type="number" name="j" id="100" required> <br> <br>
+     <label for="Operation">Algorithms</label>
+     <select name="operation"  id="110">
+         <option value="Rfor">Random forest</option>
+         <option value="Lreg">Logistic regrition</option>
+         <option value="tree">Decision tree</option>
+         <option value="KN">KNeighbor</option>
+     </select>
+      <label for="submit">Pridict the possiblity of Heart Attck</label>
+      <input type="submit" ,value="predict",  class="btn" id="120" onclick="removeSelectedRow();">
+        <a href="https://share.streamlit.io/mohamadarafa87/slitfinal/final.py">
+              <input type="button" value="Interactive Algorithms" class="btn" >
+        </a >
+	 <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+	 <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+    </div>
+ </form>
+
+
+
+
+<form class="" action="data" method="post">
+    <div class="form-group">
+
+        <input type="file" name="upload-file" value="">
+        <input type="submit" name="" class="btn" value="Submit" >
+{{ data | safe }}
+
+  <p>
+      <input type="button" value="Delete" class="btn" onclick="removeSelectedRow();">
+        <script>
+                var table = document.getElementById('my_id');
+                for(var i = 1; i < table.rows.length; i++)
+                {
+                    table.rows[i].onclick = function()
+                    {
+                         rIndex = this.rowIndex;
+                      document.getElementById(parseFloat("10")).value = this.cells[1].innerHTML;
+                      document.getElementById(parseFloat("20")).value = this.cells[2].innerHTML;
+                      document.getElementById(parseFloat("30")).value = this.cells[3].innerHTML;
+                      document.getElementById(parseFloat("40")).value = this.cells[4].innerHTML;
+                      document.getElementById(parseFloat("50")).value = this.cells[5].innerHTML;
+                      document.getElementById(parseFloat("60")).value = this.cells[6].innerHTML;
+                      document.getElementById(parseFloat("70")).value = this.cells[7].innerHTML;
+                      document.getElementById(parseFloat("80")).value = this.cells[8].innerHTML;
+                      document.getElementById(parseFloat("90")).value = this.cells[9].innerHTML;
+                      document.getElementById(parseFloat("100")).value = this.cells[10].innerHTML;
+                    };
+                }
+
+                                          function removeSelectedRow()
+            {
+                table.deleteRow(rIndex);
+                // clear input text
+                document.getElementById("1").value = "";
+                document.getElementById("2").value = "";
+                document.getElementById("3").value = "";
+                document.getElementById("4").value = "";
+                document.getElementById("5").value = "";
+                document.getElementById("6").value = "";
+                document.getElementById("7").value = "";
+                document.getElementById("8").value = "";
+                document.getElementById("9").value = "";
+                document.getElementById("10").value = "";
+            }
+
+        </script>
+  </p>
+        </div>
+        </form>
+
+
+        <form>
+<div class="container">
+
+  <div class="form-group">
+
+            <left><img src="{{user_image1}}"></left>
+            <left><img src="{{user_image2}}"></left>
+            <left><img src="{{user_image3}}"></left>
+            <left><img src="{{user_image4}}"></left>
+<br>
+<br>
+<h2>{{prediction_text1}}</h2><h2>{{prediction_text3}}</h2><h2>{{prediction_text5}}</h2><h2>{{prediction_text7}}</h2>
+<br>
+<br>
+<h2>{{prediction_text2}}</h2><h2>{{prediction_text4}}</h2><h2>{{prediction_text6}}</h2><h2>{{prediction_text8}}</h2>
+
+
+      </div>
+
+</div>
+
+
+
+</form>
+</div>
+</body>
+</html>
